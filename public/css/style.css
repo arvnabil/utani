@@ -1,0 +1,105 @@
+trix-toolbar [data-trix-button-group="file-tools"] {
+    display: none;
+}
+
+.trix-button--icon-undo {
+    display: none !important;
+}
+
+.trix-button--icon-redo {
+    display: none !important;
+}
+
+img.tengah {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.st-color {
+    background-color: #0b3005;
+    color: white;
+}
+
+.garis {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #0b3005;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.datepicker {
+    font-size: 13px;
+}
+
+.see-more:hover {
+    color: black;
+}
+
+.font-card-header {
+    font-size: 20px;
+}
+
+.btn-style {
+    color: #fff !important;
+    background-color: #0b3005 !important;
+    border-color: #0b3005 !important;
+}
+
+.text-style {
+    color: #0b3005 !important;
+}
+
+a.text-style:hover,
+a.text-style:focus {
+    color: #224abe !important;
+}
+
+.border-top-primary {
+    border-top: 0.25rem solid #0b3005 !important;
+}
+
+.border-left-primary {
+    border-left: 0.3rem solid #0b3005 !important;
+}
+
+#main {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: arial, sans-serif;
+    font-size: 13px;
+    color: black !important;
+}
+#main td {
+    text-align: left;
+    padding: 5px 8px 5px 8px;
+    border: 1px solid black;
+}
+#main {
+    border-collapse: collapse;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+}
+.rating > label {
+    display: inline-block;
+    padding: 5px;
+}
+.rating > input {
+    display: none;
+}
+.rating > label:before {
+    content: "\2605";
+    font-size: 25px;
+    cursor: pointer;
+}
+.rating > input:checked ~ label:before {
+    content: "\2605";
+    color: orange;
+}
