@@ -1,4 +1,4 @@
-## VEGET SHOP
+## UTANI SHOP
 Aplikasi E-Commerce sederhana dengan tema sayuran menggunakan Framework Laravel 8
 
 ![Laravel](https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white)
