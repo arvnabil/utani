@@ -76,16 +76,17 @@
                     </div>
                     <div class="row mt-n5">
                         @foreach ($produk as $item)
-                            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                                <div class="featured__item">
-                                    <div class="featured__item__pic set-bg"
-                                        data-setbg="{{ asset('storage/' . $item->foto_produk) }}">
-                                        <ul class="featured__item__pic__hover">
+                            @if ($store->user->id !== auth()->user()->id)
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                                    <div class="featured__item">
+                                        <div class="featured__item__pic set-bg"
+                                            data-setbg="{{ asset('storage/' . $item->foto_produk) }}">
+                                            <ul class="featured__item__pic__hover">
 
-                                            @if (!auth()->check())
-                                                <li><a href="/login"><i class="fa fa-shopping-cart"></i></a></li>
-                                            @else
-                                                
+                                                @if (auth()->user()->email_verified_at == null)
+                                                    <li><a href="{{ route('verification.notice') }}"><i
+                                                                class="fa fa-shopping-cart"></i></a></li>
+                                                @else
                                                     @if ($item->stock_produk == 0)
                                                         <li><a href="#" id="stock_habis"><i
                                                                     class="fa fa-shopping-cart"></i></a></li>
@@ -98,27 +99,27 @@
                                                             </a>
                                                         </li>
                                                     @endif
-                                              
+                                                @endif
+                                            </ul>
+                                        </div>
+                                        <div class="featured__item__text">
+                                            <h6 class="text-capitalize"><a
+                                                    href="/shop/detail-produk/{{ $item->id }}">{{ $item->nama_produk }}</a>
+                                            </h6>
+                                            <h5>Rp.{{ number_format($item->harga_produk, 0, ',', '.') }}</h5>
+                                            @if ($item->stock_produk == 0)
+                                                <small class="badge badge-danger"> Stok Habis</small>
+                                            @else
+                                                @if ($item->total > 10)
+                                                    <small class="badge st-color"> {{ $item->total }} Pcs Terjual</small>
+                                                @elseif($item->total > 0 && $item->total < 10)
+                                                    <small class="badge st-color"> 0{{ $item->total }} Pcs Terjual</small>
+                                                @endif
                                             @endif
-                                        </ul>
-                                    </div>
-                                    <div class="featured__item__text">
-                                        <h6 class="text-capitalize"><a
-                                                href="/shop/detail-produk/{{ $item->id }}">{{ $item->nama_produk }}</a>
-                                        </h6>
-                                        <h5>Rp.{{ number_format($item->harga_produk, 0, ',', '.') }}</h5>
-                                        @if ($item->stock_produk == 0)
-                                            <small class="badge badge-danger"> Stok Habis</small>
-                                        @else
-                                            @if ($item->total > 10)
-                                                <small class="badge st-color"> {{ $item->total }} Pcs Terjual</small>
-                                            @elseif($item->total > 0 && $item->total < 10)
-                                                <small class="badge st-color"> 0{{ $item->total }} Pcs Terjual</small>
-                                            @endif
-                                        @endif
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         @endforeach
                     </div>
                     <div class="row mt-5">
