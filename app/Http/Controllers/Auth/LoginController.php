@@ -48,18 +48,12 @@ class LoginController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             if (auth()->user()->role == 3) {
-                if (!auth()->user()->hasVerifiedEmail()) {
-                    return redirect()->route('verification.notice');
-                }
                 $request->session()->regenerate();
                 return redirect()->intended('/');
             } else if (auth()->user()->role == 2) {
-                if (!auth()->user()->hasVerifiedEmail()) {
-                    return redirect()->route('verification.notice');
-                } else {
                     $request->session()->regenerate();
                     return redirect()->intended('/seller');
-                }
+                
             } else if (auth()->user()->role == 1) {
 
                 $request->session()->regenerate();
