@@ -85,10 +85,7 @@
                                             @if (!auth()->check())
                                                 <li><a href="/login"><i class="fa fa-shopping-cart"></i></a></li>
                                             @else
-                                                @if (auth()->user()->email_verified_at == null)
-                                                    <li><a href="{{ route('verification.notice') }}"><i
-                                                                class="fa fa-shopping-cart"></i></a></li>
-                                                @else
+                                                
                                                     @if ($item->stock_produk == 0)
                                                         <li><a href="#" id="stock_habis"><i
                                                                     class="fa fa-shopping-cart"></i></a></li>
@@ -101,7 +98,7 @@
                                                             </a>
                                                         </li>
                                                     @endif
-                                                @endif
+                                              
                                             @endif
                                         </ul>
                                     </div>
