@@ -87,7 +87,7 @@
                                 <h5 class="mb-0">
                                     <button class="btn btn-link text-light collapsed" type="button" data-toggle="collapse"
                                         data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        Q. Jam Buka Pesanan MaiSayur?
+                                        Q. Jam Buka Pesanan UTani Sayur?
                                     </button>
                                 </h5>
                             </div>
