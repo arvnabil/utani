@@ -76,8 +76,7 @@
                     </div>
                     <div class="row mt-n5">
                         @foreach ($produk as $item)
-                            @if ($store->user->id !== auth()->user()->id)
-                                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                                     <div class="featured__item">
                                         <div class="featured__item__pic set-bg"
                                             data-setbg="{{ asset('storage/' . $item->foto_produk) }}">
@@ -119,7 +118,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endif
                         @endforeach
                     </div>
                     <div class="row mt-5">
