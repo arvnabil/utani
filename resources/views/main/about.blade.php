@@ -42,7 +42,7 @@
                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                                 data-parent="#faqExample">
                                 <div class="card-body">
-                                    <b>Answer:</b> MaiSayur adalah toko online yang dapat digunakan untuk memesan sayuran
+                                    <b>Answer:</b> Utani adalah toko online yang dapat digunakan untuk memesan sayuran
                                     melalui aplikasi berbasis website
                                 </div>
                             </div>
