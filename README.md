@@ -26,7 +26,7 @@ Aplikasi E-Commerce sederhana dengan tema sayuran menggunakan Framework Laravel 
 ## LANGKAH INSTALLASI
 ### 1. Clone this repo
 ```bash
-git clone https://github.com/firdauszulkarnain/veget-shop.git
+git clone https://github.com/arvnabil/utani.git
 ```
 ### 2. Change directory
 ```bash
