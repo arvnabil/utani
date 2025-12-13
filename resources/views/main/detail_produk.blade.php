@@ -47,16 +47,7 @@
                             </div>
                             <a href="/login" class="primary-btn">ADD TO CARD</a>
                         @else
-                            @if (auth()->user()->email_verified_at == null)
-                                <div class="product__details__quantity">
-                                    <div class="quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1" name="qty" autocomplete="off">
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="{{ route('verification.notice') }}" class="primary-btn">ADD TO CARD</a>
-                            @else
+
                                 @if ($produk->stock_produk == 0)
                                 <a href="#" id="stock_habis" class="primary-btn">ADD TO CARD</a>
                                 @else
@@ -71,7 +62,7 @@
                                     </div>
                                     <button type="submit" id="keranjang" class="primary-btn border-0"><i class="fa fa-shopping-cart"></i></button>
                                 </form>
-                                @endif
+                               
                                
                             @endif     
                         @endif
