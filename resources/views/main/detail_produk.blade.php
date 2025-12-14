@@ -2,7 +2,7 @@
 
 
 @section('content')
-    
+
     <!-- Breadcrumb Section Begin -->
     <section class="container breadcrumb-section set-bg st-color">
         <div class="container">
@@ -28,15 +28,17 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
-                        <img class="tengah" src="{{ asset('storage/' . $produk->foto_produk) }}" alt="" width="70%">
+                        <img class="tengah" src="{{ asset('storage/' . $produk->foto_produk) }}" alt=""
+                            width="70%">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
                         <h3 class="text-capitalize">{{ $produk->nama_produk }}</h3>
-                        <div class="product__details__price">Rp. {{ number_format($produk->harga_produk, 0, ',', '.') }}</div>
+                        <div class="product__details__price">Rp. {{ number_format($produk->harga_produk, 0, ',', '.') }}
+                        </div>
                         <p class="text-justify pr-5">{{ strip_tags(Str::limit($produk->desc_produk, 200)) }}</p>
-                        
+
                         @if (!auth()->check())
                             <div class="product__details__quantity">
                                 <div class="quantity">
@@ -47,10 +49,9 @@
                             </div>
                             <a href="/login" class="primary-btn">ADD TO CARD</a>
                         @else
-
-                                @if ($produk->stock_produk == 0)
+                            @if ($produk->stock_produk == 0)
                                 <a href="#" id="stock_habis" class="primary-btn">ADD TO CARD</a>
-                                @else
+                            @else
                                 <form action="{{ route('tambah_keranjang', $produk->id) }}" method="POST">
                                     @csrf
                                     <div class="product__details__quantity">
@@ -60,14 +61,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" id="keranjang" class="primary-btn border-0"><i class="fa fa-shopping-cart"></i></button>
+                                    <button type="submit" id="keranjang" class="primary-btn border-0"><i
+                                            class="fa fa-shopping-cart"></i></button>
                                 </form>
-                               
-                               
-                            @endif     
+                            @endif
                         @endif
                         <ul>
-                            <li><b>Stock</b> 
+                            <li><b>Stock</b>
                                 @if ($produk->stock_produk == 0)
                                     <span>Tidak Tersedia</span>
                                 @else
@@ -76,12 +76,12 @@
                             </li>
                             <li><b>Store</b> <span class="text-capitalize">{{ $produk->store->nama_toko }}</span></li>
                             <li><b>Total Terjual</b> <span class="text-capitalize">
-                                @if ($sold->total > 10)
-                                    {{ $sold->total }} Pcs
-                                @else
-                                    0{{ $sold->total }} Pcs
-                                @endif
-                            </span></li>
+                                    @if ($sold->total > 10)
+                                        {{ $sold->total }} Kg
+                                    @else
+                                        0{{ $sold->total }} Kg
+                                    @endif
+                                </span></li>
                         </ul>
                     </div>
                 </div>
@@ -109,31 +109,34 @@
 
     <!-- Related Product Section Begin -->
     @if (count($related) != 0)
-    <section class="related-product">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title related__product__title">
-                        <h2>Produk Lainnya</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-               @foreach ($related as $item)
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="{{ asset('storage/'. $item->foto_produk) }}">
-                        </div>
-                        <div class="featured__item__text">
-                            <h6 class="text-capitalize"><a href="/shop/detail-produk/{{ $item->id }}">{{ $item->nama_produk }}</a></h6>
-                            <h5>Rp.{{ number_format($item->harga_produk, 0, ',', '.') }}</h5>
+        <section class="related-product">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title related__product__title">
+                            <h2>Produk Lainnya</h2>
                         </div>
                     </div>
                 </div>
-               @endforeach
+                <div class="row">
+                    @foreach ($related as $item)
+                        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                            <div class="featured__item">
+                                <div class="featured__item__pic set-bg"
+                                    data-setbg="{{ asset('storage/' . $item->foto_produk) }}">
+                                </div>
+                                <div class="featured__item__text">
+                                    <h6 class="text-capitalize"><a
+                                            href="/shop/detail-produk/{{ $item->id }}">{{ $item->nama_produk }}</a>
+                                    </h6>
+                                    <h5>Rp.{{ number_format($item->harga_produk, 0, ',', '.') }}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
     <!-- Related Product Section End -->
     <script>
@@ -152,12 +155,12 @@
                 dataType: "html",
                 data: {
                     "_token": token,
-                    "idProduk" : idProduk
+                    "idProduk": idProduk
                 },
                 success: function(msg) {
                     let tmp = JSON.parse(msg);
                     // alert(tmp.change);
-                    if(tmp.change == 1){
+                    if (tmp.change == 1) {
                         Swal.fire({
                             title: 'Warning!',
                             text: "Anda memiliki item dari toko lain dalam keranjang, ganti item dari toko ini?",
@@ -166,15 +169,16 @@
                             confirmButtonColor: '#539165',
                             cancelButtonColor: '#d33',
                             confirmButtonText: 'Ya, Pesan Item Ini!'
-                            }).then((result) => {
+                        }).then((result) => {
                             if (result.isConfirmed) {
                                 form.submit();
                             }
                         })
-                    }else{
+                    } else {
                         form.submit();
                     }
-                },error: function(){
+                },
+                error: function() {
                     Swal.fire({
                         title: 'Error!',
                         text: 'Kesalahan Akun Privilege',
@@ -183,7 +187,6 @@
                 }
             });
         });
-
     </script>
 
 @endsection
