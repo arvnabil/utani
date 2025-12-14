@@ -104,14 +104,14 @@ class ProdukController extends Controller
             $validasi['foto_produk'] = $request->file('foto_produk')->store('gambar-produk');
         }
 
-        $stock = 0;
-        if ($request->stock != null) {
-            $stock = 1;
-        }
+        // $stock = 0;
+        // if ($request->stock != null) {
+        //     $stock = 1;
+        // }
         $produk = Produk::find($produk->id);
         $produk->nama_produk = $validasi['nama_produk'];
         $produk->harga_produk = str_replace(".", "", $validasi['harga_produk']);
-        $produk->stock_produk = $stock;
+        $produk->stock_produk = $request->stock;
         $produk->foto_produk = ($request->file('foto_produk')) ? $validasi['foto_produk'] : $produk->foto_produk;
         $produk->save();
         return redirect('/produk')->with('success', 'Berhasil Update Data Produk');
