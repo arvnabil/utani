@@ -41,6 +41,8 @@
                         <input type="checkbox" class="custom-control-input" id="customSwitches" name="stock" checked>
                         <label class="custom-control-label text-primary font-weight-bolder" for="customSwitches" id="labelStock">Stock Tersedia</label>
                     </div> --}}
+                        <label for="harga_produk" class="text-dark">Stok Sayur (<span
+                                class="text-secondary">Kg</span>)</label>
                         <div class="input-group quantity-container" style="width: 150px;">
                             <div class="input-group-prepend">
                                 <button class="btn btn-style  btn-minus" type="button" data-type="minus">-</button>
