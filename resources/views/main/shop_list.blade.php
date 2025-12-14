@@ -55,7 +55,7 @@
                     </div>
                     <div class="row mt-n5">
                         @foreach ($toko as $item)
-                            @if ($item->user->id !== Auth::user()->id)
+                            @if (!auth()->check())
                                 <div class="col-lg-6">
                                     <div class="card ml-4 mt-3 px-2 py-2 pb-0 border-left-primary"
                                         style="max-width: 520px; max-height: 200px !important;" id="">
@@ -82,6 +82,35 @@
                                         </div>
                                     </div>
                                 </div>
+                            @else
+                                @if ($item->user->id !== Auth::user()->id)
+                                    <div class="col-lg-6">
+                                        <div class="card ml-4 mt-3 px-2 py-2 pb-0 border-left-primary"
+                                            style="max-width: 520px; max-height: 200px !important;" id="">
+                                            <div class="row no-gutters">
+                                                <div class="col-sm-4">
+                                                    <img src="{{ asset('/dist/img/logo2.png') }}" alt=""
+                                                        class="mt-1 border border-dark"
+                                                        style="border-color: #0b3005 !important; max-height: 100%; max-width: 100% !important;"
+                                                        width="100%">
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title text-capitalize"><b>{{ $item->nama_toko }}</b>
+                                                        </h5>
+                                                        <p class="card-text" style="font-size: 15px !important;">
+                                                            {{ $item->alamat_toko }}</p>
+                                                        <p class="card-text mt-n3"><small
+                                                                class="text-muted">{{ $item->notelp_toko }}</small></p>
+                                                        <a href="{{ route('detail_shop', $item->id) }}"
+                                                            class="btn btn-style float-right mt-0 px-4">Kunjungi Toko <i
+                                                                class="fas fa-fw fa-sign-in-alt"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             @endif
                         @endforeach
                     </div>
