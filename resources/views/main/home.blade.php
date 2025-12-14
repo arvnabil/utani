@@ -119,7 +119,15 @@
         </div>
     </section>
 
-
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: '{{ session('error') }}',
+                icon: 'error'
+            });
+        </script>
+    @endif
 
     <!-- Featured Section End -->
     <script>

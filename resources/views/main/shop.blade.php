@@ -197,6 +197,17 @@
             </div>
         </div>
     </section>
+
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: '{{ session('error') }}',
+                icon: 'error'
+            });
+        </script>
+    @endif
+
     <!-- Product Section End -->
     <script>
         $(document).on("click", "#keranjang", function(e) {
