@@ -87,7 +87,8 @@
                                             @else
                                                 <li>
                                                     <a href="javascript:;" data-id="{{ $item->id }}" data-toggle="modal"
-                                                        data-target="#modalKeranjang" class="modal_keranjang">
+                                                        data-target="#modalKeranjang{{ $item->id }}"
+                                                        class="modal_keranjang">
                                                         <i class="fa fa-shopping-cart"></i>
                                                     </a>
                                                 </li>
