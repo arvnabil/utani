@@ -61,6 +61,20 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="input-group quantity-container" style="width: 150px;">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary btn-minus" type="button"
+                                                data-type="minus">-</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center input-box" value="1"
+                                            min="1" max="10" aria-label="Quantity"
+                                            aria-describedby="button-addon1">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary btn-plus" type="button"
+                                                data-type="plus">+</button>
+                                        </div>
+                                    </div>
                                     <button type="submit" id="keranjang" class="primary-btn border-0"><i
                                             class="fa fa-shopping-cart"></i></button>
                                 </form>
