@@ -52,14 +52,12 @@
                         </div>
                         <div class="input-group quantity-container" style="width: 150px;">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary btn-minus" type="button"
-                                    data-type="minus">-</button>
+                                <button class="btn btn-style  btn-minus" type="button" data-type="minus">-</button>
                             </div>
-                            <input type="number" class="form-control text-center input-box" value="1" min="1"
-                                max="10" aria-label="Quantity" aria-describedby="button-addon1">
+                            <input type="number" class="form-control text-center input-box" value="1" name="stock"
+                                min="1" max="10" aria-label="Quantity" aria-describedby="button-addon1">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary btn-plus" type="button"
-                                    data-type="plus">+</button>
+                                <button class="btn btn-style  btn-plus" type="button" data-type="plus">+</button>
                             </div>
                         </div>
                         <div class="product__details__quantity">
