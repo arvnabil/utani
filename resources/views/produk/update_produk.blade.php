@@ -39,7 +39,7 @@
                         Detail Sayuran
                     </div>
                     <div class="card-body">
-                        <div class="custom-control custom-switch">
+                        {{-- <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="customSwitches" name="stock" checked>
                             <label class="custom-control-label text-primary font-weight-bolder" for="customSwitches"
                                 id="labelStock">
@@ -49,7 +49,7 @@
                                     Stock Tidak Tersedia
                                 @endif
                             </label>
-                        </div>
+                        </div> --}}
                         <div class="input-group quantity-container" style="width: 150px;">
                             <div class="input-group-prepend">
                                 <button class="btn btn-style  btn-minus" type="button" data-type="minus">-</button>
