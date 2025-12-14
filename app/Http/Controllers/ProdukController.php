@@ -129,7 +129,7 @@ class ProdukController extends Controller
     public function update_stock(Produk $produk)
     {
         $oldStock = $produk->stock_produk;
-        if ($oldStock == 1) {
+        if ($oldStock >= 1) {
             $produk->stock_produk = 0;
         } else {
             $produk->stock_produk = 1;

@@ -29,7 +29,8 @@
                                     <td>Rp. {{ number_format($row->harga_produk, 0, ',', '.') }}</td>
                                     <td>
                                         @if ($row->stock_produk >= 1)
-                                            <span class="badge badge-primary">Tersedia {{ $row->stock_produk }} Kg</span>
+                                            <span class="badge badge-primary">Tersedia <strong>({{ $row->stock_produk }}
+                                                    Kg)</strong></span>
                                         @else
                                             <span class="badge badge-danger">Tidak Tersedia</span>
                                         @endif
