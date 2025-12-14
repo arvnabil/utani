@@ -17,7 +17,7 @@ class HomeController extends Controller
     {
         $data = [
             'title' => 'Beranda',
-            'produk' => Produk::with(['store'])->where('stock_produk', 1)->limit(8)->get(),
+            'produk' => Produk::with(['store'])->where('stock_produk', '>=', 1)->limit(8)->get(),
             'totalCart' => $this->totalCart(),
         ];
         return view('main.home', $data);

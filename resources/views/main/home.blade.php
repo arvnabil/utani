@@ -90,7 +90,15 @@
                                                     <button type="submit" id="keranjang" class="primary-btn border-0"><i
                                                             class="fa fa-shopping-cart"></i></button>
                                                     <ul class="mt-n3">
-                                                        <li><b>Stock</b> <span>Tersedia</span></li>
+                                                        <li><b>Stock</b> <span>
+                                                                @if ($item->stock_produk == 0)
+                                                                    <span class="badge badge-danger">Tidak Tersedia</span>
+                                                                @else
+                                                                    <span class="badge badge-primary">Tersedia
+                                                                        <strong>({{ $item->stock_produk }}
+                                                                            Kg)</strong></span>
+                                                                @endif
+                                                            </span></li>
                                                         <li><b>Store</b> <span class="text-capitalize"
                                                                 id="toko"></span></li>
                                                     </ul>
