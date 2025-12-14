@@ -48,7 +48,7 @@
                                 <button class="btn btn-style  btn-minus" type="button" data-type="minus">-</button>
                             </div>
                             <input type="number" class="form-control text-center input-box" value="1" name="stock"
-                                min="1" max="10" aria-label="Quantity" aria-describedby="button-addon1">
+                                min="1" aria-label="Quantity" aria-describedby="button-addon1">
                             <div class="input-group-append">
                                 <button class="btn btn-style  btn-plus" type="button" data-type="plus">+</button>
                             </div>

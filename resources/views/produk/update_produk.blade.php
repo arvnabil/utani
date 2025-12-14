@@ -57,8 +57,8 @@
                                 <button class="btn btn-style  btn-minus" type="button" data-type="minus">-</button>
                             </div>
                             <input type="number" class="form-control text-center input-box"
-                                value="{{ $produk->stock_produk }}" name="stock" min="1" max="10"
-                                aria-label="Quantity" aria-describedby="button-addon1">
+                                value="{{ $produk->stock_produk }}" name="stock" min="1" aria-label="Quantity"
+                                aria-describedby="button-addon1">
                             <div class="input-group-append">
                                 <button class="btn btn-style  btn-plus" type="button" data-type="plus">+</button>
                             </div>
