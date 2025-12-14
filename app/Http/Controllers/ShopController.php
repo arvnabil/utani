@@ -89,6 +89,10 @@ class ShopController extends Controller
         $pesanan =  Pesanan::where('user_id', $user_id)->where(['status' => 0])->first();
         $produk = Produk::with(['store'])->find($produk->id);
 
+        if ($produk->stock_produk < $qty) {
+            return redirect()->back()->with('error', 'Stok Produk Tidak Mencukupi');
+        }
+
         if ($pesanan == null) {
             $pesanan = Pesanan::create([
                 'user_id' => $user_id,
