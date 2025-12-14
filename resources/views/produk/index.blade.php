@@ -29,7 +29,7 @@
                                     <td>Rp. {{ number_format($row->harga_produk, 0, ',', '.') }}</td>
                                     <td>
                                         @if ($row->stock_produk >= 1)
-                                            <span class="badge badge-primary">Tersedia</span>
+                                            <span class="badge badge-primary">Tersedia {{ $row->stock_produk }} Kg</span>
                                         @else
                                             <span class="badge badge-danger">Tidak Tersedia</span>
                                         @endif
@@ -38,7 +38,7 @@
                                         <form action="{{ route('update_stock', $row->id) }}" method="POST"
                                             class="d-inline">
                                             @csrf
-                                            @if ($row->stock_produk == 1)
+                                            @if ($row->stock_produk >= 1)
                                                 <button class="btn btn-dark btn-sm tombol-stock"
                                                     data-stock="{{ $row->stock_produk }}"><i
                                                         class="fas fa-fw fa-arrow-circle-down"></i></button>
