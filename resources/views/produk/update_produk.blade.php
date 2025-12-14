@@ -60,13 +60,6 @@
                                 <button class="btn btn-style  btn-plus" type="button" data-type="plus">+</button>
                             </div>
                         </div>
-                        <div class="product__details__quantity">
-                            <div class="quantity">
-                                <div class="pro-qty" id="pro-qty">
-                                    <input type="text" value="1" name="qty" autocomplete="off">
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="card mt-3">
