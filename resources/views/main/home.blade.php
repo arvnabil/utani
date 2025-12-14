@@ -20,7 +20,7 @@
     <!-- Hero Section End -->
 
     <!-- Featured Section Begin -->
-    <section class="featured spad">
+    <section class="featured spad" id="shop">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -31,7 +31,7 @@
             </div>
             <div class="row">
                 @foreach ($produk as $item)
-                    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat" id="shop">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                         <div class="featured__item">
                             <div class="featured__item__pic set-bg shadow-sm p-3 mb-5 bg-white rounded"
                                 data-setbg="{{ asset('storage/' . $item->foto_produk) }}">
