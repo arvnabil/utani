@@ -135,6 +135,12 @@ class ShopController extends Controller
         $pesanan =  Pesanan::where('user_id', $userId)->where('status', 0)->first();
         $id = $pesanan->id;
         $items = Detpesanan::with(['produk'])->where('pesanan_id', $id);
+        foreach ($items->get() as $item) {
+            if ($item->produk->stock_produk < $item->qty) {
+                return redirect()->back()->with('error', 'Stok Produk ' . $item->produk->nama_produk . ' Tidak Mencukupi');
+            }
+        }
+
         $data = [
             'title' => 'Konfirmasi Pesanan',
             'totalCart' => $this->totalCart(),
