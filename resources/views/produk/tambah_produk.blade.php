@@ -120,4 +120,61 @@
             }
         }
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select all quantity containers if you have multiple
+            document.querySelectorAll('.quantity-container').forEach(container => {
+                const minusBtn = container.querySelector('.btn-minus');
+                const plusBtn = container.querySelector('.btn-plus');
+                const inputBox = container.querySelector('.input-box');
+
+                // Function to update the input value
+                function updateQuantity(amount) {
+                    let currentValue = parseInt(inputBox.value) || 0;
+                    let newValue = currentValue + amount;
+                    const min = parseInt(inputBox.min);
+                    const max = parseInt(inputBox.max);
+
+                    // Constrain the value within min/max if specified
+                    if (!isNaN(min) && newValue < min) {
+                        newValue = min;
+                    }
+                    if (!isNaN(max) && newValue > max) {
+                        newValue = max;
+                    }
+
+                    inputBox.value = newValue;
+                    updateButtonStates();
+                }
+
+                // Function to handle button disabled states
+                function updateButtonStates() {
+                    const value = parseInt(inputBox.value);
+                    const min = parseInt(inputBox.min);
+                    const max = parseInt(inputBox.max);
+
+                    minusBtn.disabled = !isNaN(min) && value <= min;
+                    plusBtn.disabled = !isNaN(max) && value >= max;
+                }
+
+                // Event listeners for the buttons
+                minusBtn.addEventListener('click', () => {
+                    updateQuantity(-1);
+                });
+
+                plusBtn.addEventListener('click', () => {
+                    updateQuantity(1);
+                });
+
+                // Add input event listener to ensure manual entry is within bounds
+                inputBox.addEventListener('input', () => {
+                    updateButtonStates();
+                });
+
+                // Initial state update
+                updateButtonStates();
+            });
+        });
+    </script>
 @endsection

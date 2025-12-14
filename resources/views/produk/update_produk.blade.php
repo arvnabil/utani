@@ -50,6 +50,7 @@
                                 @endif
                             </label>
                         </div> --}}
+                        <label for="harga_produk" class="text-dark">Harga Sayur</label>
                         <div class="input-group quantity-container" style="width: 150px;">
                             <div class="input-group-prepend">
                                 <button class="btn btn-style  btn-minus" type="button" data-type="minus">-</button>
