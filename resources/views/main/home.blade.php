@@ -10,7 +10,7 @@
                         <div class="hero__text">
                             <h2>SAYURAN <br />100% FRESH</h2>
                             <p>Tersedia Pengiriman Berbagai Wilayah Bali</p>
-                            <a href="#" class="primary-btn px-5">SHOP</a>
+                            <a href="#shop" class="primary-btn px-5">SHOP</a>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
             </div>
             <div class="row">
                 @foreach ($produk as $item)
-                    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat" id="shop">
                         <div class="featured__item">
                             <div class="featured__item__pic set-bg shadow-sm p-3 mb-5 bg-white rounded"
                                 data-setbg="{{ asset('storage/' . $item->foto_produk) }}">
@@ -39,13 +39,12 @@
                                     @if (!auth()->check())
                                         <li><a href="{{ route('login') }}"><i class="fa fa-shopping-cart"></i></a></li>
                                     @else
-                                        
-                                            <li>
-                                                <a href="javascript:;" data-id="{{ $item->id }}" data-toggle="modal"
-                                                    data-target="#modalKeranjang" class="modal_keranjang">
-                                                    <i class="fa fa-shopping-cart"></i>
-                                                </a>
-                                            </li>
+                                        <li>
+                                            <a href="javascript:;" data-id="{{ $item->id }}" data-toggle="modal"
+                                                data-target="#modalKeranjang" class="modal_keranjang">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
                                     @endif
                                 </ul>
                             </div>
