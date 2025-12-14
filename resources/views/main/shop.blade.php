@@ -85,13 +85,26 @@
                                                 <li><a href="#" id="stock_habis"><i
                                                             class="fa fa-shopping-cart"></i></a></li>
                                             @else
-                                                <li>
+                                                @if (!auth()->check())
+                                                    <li><a href="{{ route('login') }}"><i
+                                                                class="fa fa-shopping-cart"></i></a></li>
+                                                @else
+                                                    <li>
+                                                        <a href="javascript:;" data-id="{{ $item->id }}"
+                                                            data-toggle="modal"
+                                                            data-target="#modalKeranjang{{ $item->id }}"
+                                                            class="modal_keranjang">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                        </a>
+                                                    </li>
+                                                @endif
+                                                {{-- <li>
                                                     <a href="javascript:;" data-id="{{ $item->id }}" data-toggle="modal"
                                                         data-target="#modalKeranjang{{ $item->id }}"
                                                         class="modal_keranjang">
                                                         <i class="fa fa-shopping-cart"></i>
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                             @endif
                                         </ul>
                                     </div>
@@ -133,7 +146,8 @@
                                                         <div class="product__details__text mt-3">
                                                             <h3 class="text-capitalize" id="nama_produk">Nama Produk</h3>
                                                             <div class="product__details__price"
-                                                                style="font-size: 20px !important;" id="harga_produk"></div>
+                                                                style="font-size: 20px !important;" id="harga_produk">
+                                                            </div>
                                                             <p class="text-justify pr-5" id="desc_produk"></p>
                                                             <div class="product__details__quantity">
                                                                 <div class="quantity">
