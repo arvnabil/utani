@@ -111,6 +111,67 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="modal fade" id="modalKeranjang{{ $item->id }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Detail Ringkas Produk</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <img src="" alt="" id="foto_produk" width="100%" cla>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <form action="" method="POST" id="tambah_produk">
+                                                        @csrf
+                                                        <div class="product__details__text mt-3">
+                                                            <h3 class="text-capitalize" id="nama_produk">Nama Produk</h3>
+                                                            <div class="product__details__price"
+                                                                style="font-size: 20px !important;" id="harga_produk"></div>
+                                                            <p class="text-justify pr-5" id="desc_produk"></p>
+                                                            <div class="product__details__quantity">
+                                                                <div class="quantity">
+                                                                    <div class="pro-qty" id="pro-qty">
+                                                                        <input type="text" value="1"
+                                                                            name="qty" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button type="submit" id="keranjang"
+                                                                class="primary-btn border-0"><i
+                                                                    class="fa fa-shopping-cart"></i></button>
+                                                            <ul class="mt-n3">
+                                                                <li><b>Stock</b> <span>
+                                                                        @if ($item->stock_produk == 0)
+                                                                            <span class="badge badge-danger">Tidak
+                                                                                Tersedia</span>
+                                                                        @else
+                                                                            <span class="badge badge-primary">Tersedia
+                                                                                <strong>({{ $item->stock_produk }}
+                                                                                    Kg)</strong></span>
+                                                                        @endif
+                                                                    </span></li>
+                                                                <li><b>Store</b> <span class="text-capitalize"
+                                                                        id="toko"></span></li>
+                                                            </ul>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
                     <div class="row mt-5">
@@ -135,53 +196,6 @@
             </div>
         </div>
     </section>
-    <div class="modal fade" id="modalKeranjang" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Detail Ringkas Produk</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <img src="" alt="" id="foto_produk" width="100%" cla>
-                        </div>
-                        <div class="col-lg-6">
-                            <form action="" method="POST" id="tambah_produk">
-                                @csrf
-                                <div class="product__details__text mt-3">
-                                    <h3 class="text-capitalize" id="nama_produk">Nama Produk</h3>
-                                    <div class="product__details__price" style="font-size: 20px !important;"
-                                        id="harga_produk"></div>
-                                    <p class="text-justify pr-5" id="desc_produk"></p>
-                                    <div class="product__details__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty" id="pro-qty">
-                                                <input type="text" value="1" name="qty" autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" id="keranjang" class="primary-btn border-0"><i
-                                            class="fa fa-shopping-cart"></i></button>
-                                    <ul class="mt-n3">
-                                        <li><b>Stock</b> <span>Tersedia</span></li>
-                                        <li><b>Store</b> <span class="text-capitalize" id="toko"></span></li>
-                                    </ul>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Product Section End -->
     <script>
         $(document).on("click", "#keranjang", function(e) {
